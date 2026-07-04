@@ -8,11 +8,11 @@ class ArmStatePublisher(Node):
         super().__init__('arm_state_publisher')
         self.publisher_ = self.create_publisher(JointState, 'joint_states', 10)
         
-        # Corremos el bucle rápido a 50 Hz para que el movimiento se vea muy fluido
+        #  bucle a 50 Hz 
         self.timer = self.create_timer(0.02, self.timer_callback)
         
-        # 1. LA RUTINA (Waypoints)
-        # Cada fila es una pose exacta: [Base, Hombro, Codo, Muñeca_Pitch, Muñeca_Roll] (en radianes)
+        # 1. (Waypoints)
+        # [Base, Hombro, Codo, Muñeca_Pitch, Muñeca_Roll] (en radianes)
         self.waypoints = [
             [0.0, 0.0, 0.0, 0.0, 0.0],          # Punto 0: Posición de descanso (Home / Vertical)
             [1.57, 0.5, -0.8, 0.3, 0.0],        # Punto 1: Girar 90° a la izquierda y bajar a "escanear"
@@ -42,7 +42,7 @@ class ArmStatePublisher(Node):
         target = self.waypoints[self.target_index]
         llegamos = True
         
-        # 2. EL ALGORITMO DE INTERPOLACIÓN (El Cerebro)
+        # 2. INTERPOLACIÓN
         # Revisamos motor por motor si ya llegó a su destino
         for i in range(5):
             distancia = target[i] - self.current_positions[i]
@@ -68,7 +68,7 @@ class ArmStatePublisher(Node):
             self.get_logger().info(f'¡Llegamos al Waypoint {self.target_index}!')
             self.target_index += 1
             
-            # Si terminamos la lista, volvems a empezar el ciclo
+            # volvems a empezar el ciclo
             if self.target_index >= len(self.waypoints):
                 self.target_index = 0
 
