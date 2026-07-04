@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: arm_simulation_5dof
+    relative_path: urdf/arm_5dof.urdf.xacro
+  srdf:
+    relative_path: config/5dof_arm.srdf
+  package_settings:
+    author_name: Saul Ramos ´
+    author_email: saulivanramos75@gmail.com
+    generated_timestamp: 1783073795
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

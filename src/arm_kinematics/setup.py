@@ -29,6 +29,7 @@ setup(
         'console_scripts': [
             'fk_publisher = arm_kinematics.fk_publisher:main',
             'angle_listener = arm_kinematics.angle_listener:main',
+            'arm_state_publisher = arm_kinematics.arm_state_publisher:main',
         ],
     },
 )
