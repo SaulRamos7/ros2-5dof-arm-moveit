@@ -11,12 +11,6 @@ Este proyecto demuestra la arquitectura de software completa para el control ló
 * **Cinemática Inversa y Planificación (OMPL):** Implementación de solucionadores de cinemática inversa y algoritmos de planificación de trayectorias en el espacio 3D.
 * **Gestión de Hardware Simulado:** Resolución de conflictos de asignación aislando Gazebo y configurando un entorno puro de RViz apoyado por el framework `ros2_control`.
 
-##  Solución de Problemas (Debugging)
-Durante el desarrollo se resolvieron problemas críticos de arquitectura comunes en ROS 2:
-1. **Tipado Estricto en YAML:** Corrección de excepciones de tipos inválidos forzando variables `double` en los límites articulares.
-2. **Consistencia SRDF/URDF:** Solución de discrepancias de identidad del controlador semántico (Exit code -6).
-3. **Gestión de Caché en Colcon:** Limpieza profunda de espacios de trabajo para evitar inyecciones de archivos corruptos en la fase de lanzamiento.
-
 ##  Stack Tecnológico
 * **Framework:** ROS 2 (Humble)
 * **OS:** Linux (Ubuntu)
