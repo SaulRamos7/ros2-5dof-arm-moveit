@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../../rover_ws"
+		},
+		{
+			"name": "microros_esp32",
+			"path": "../../../Documentos/PlatformIO/Projects/microros_esp32"
+		},
+		{
+			"name": "arm_esp32_node",
+			"path": "../../../Documentos/PlatformIO/Projects/arm_esp32_node"
+		}
+	],
+	"settings": {}
+}
