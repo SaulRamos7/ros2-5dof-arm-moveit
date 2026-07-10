@@ -11,7 +11,7 @@ class ArmStatePublisher(Node):
         #  bucle a 50 Hz 
         self.timer = self.create_timer(0.02, self.timer_callback)
         
-        # 1. (Waypoints)
+        # (Waypoints)
         # [Base, Hombro, Codo, Muñeca_Pitch, Muñeca_Roll] (en radianes)
         self.waypoints = [
             [0.0, 0.0, 0.0, 0.0, 0.0],          # Punto 0: Posición de descanso (Home / Vertical)
@@ -42,7 +42,7 @@ class ArmStatePublisher(Node):
         target = self.waypoints[self.target_index]
         llegamos = True
         
-        # 2. INTERPOLACIÓN
+        # INTERPOLACIÓN
         # Revisamos motor por motor si ya llegó a su destino
         for i in range(5):
             distancia = target[i] - self.current_positions[i]
@@ -62,7 +62,7 @@ class ArmStatePublisher(Node):
         msg.position = self.current_positions
         self.publisher_.publish(msg)
         
-        # 3. CAMBIO DE ESTADO
+        # CAMBIO DE ESTADO
         # Si todos los motores llegaron a su destino, pasamos al siguiente Waypoint
         if llegamos:
             self.get_logger().info(f'¡Llegamos al Waypoint {self.target_index}!')
